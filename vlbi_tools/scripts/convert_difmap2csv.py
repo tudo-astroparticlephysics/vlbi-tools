@@ -3,6 +3,7 @@ import os
 import glob
 import pandas as pd
 from vlbi_tools import difmap
+from vlbi_tools.utils import time_diff
 
 
 @click.command()
@@ -32,6 +33,7 @@ def main(data_path, model_name, out_path):
         catalog = pd.concat([catalog, model], ignore_index=True)
 
     difmap.convert_model(catalog)
+    catalog = time_diff(catalog)
 
     catalog.to_csv(out_path + '/catalog.csv')
 
