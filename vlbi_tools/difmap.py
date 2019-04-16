@@ -1,15 +1,15 @@
 import numpy as np
 import pandas as pd
-import astropy.units as u
 from astropy.io import fits
+from utils import deg2mas
 
 
 def read_model(data_path):
-    '''
+    """
     Read difmap model file in fits format and returns a pandas dataframe
 
     DATA_PATH: Path to difmap model in fits format
-    '''
+    """
     difmap_data = fits.open(data_path)
     date = difmap_data['PRIMARY'].header['DATE-OBS']
 
@@ -42,9 +42,15 @@ def read_model(data_path):
     return df_components
 
 
+def convert_model(dataframe):
+    """
+    Convert coordinates from difmap model to milliarcseconds
 
+    DATAFRAME: Pandas dataframe of difmap model
+    """
+    df = dataframe
 
-
+    deg2mas(df['radial_dist'])
 
 '''
 minor_axes = (((difmap_data['AIPS CC'].data['MINOR AX'] *
