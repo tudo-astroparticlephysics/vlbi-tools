@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from astropy.io import fits
-from utils import deg2mas
+from vlbi_tools.utils import deg2mas
 
 
 def read_model(data_path):
@@ -50,9 +50,8 @@ def convert_model(dataframe):
     """
     df = dataframe
 
-    deg2mas(df['radial_dist'])
-
-'''
-minor_axes = (((difmap_data['AIPS CC'].data['MINOR AX'] *
-                u.degree).to(u.mas)).value)
-'''
+    df['radial_dist'] = deg2mas(df['radial_dist'].values)
+    df['major_axes'] = deg2mas(df['major_axes'].values)
+    df['minor_axes'] = deg2mas(df['minor_axes'].values)
+    df['x_positions'] = deg2mas(df['x_positions'].values)
+    df['y_positions'] = deg2mas(df['y_positions'].values)
