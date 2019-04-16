@@ -14,6 +14,12 @@ setup(
         'pandas',
         'astropy',
     ],
+    zip_safe=False,
+    entry_points={
+        'console_scripts': [
+            'vlbi_convert_difmap2csv = vlbi_tools.scripts.convert_difmap2csv:main'
+        ]
+    },
     classifiers=[
          'Development Status :: 2 - Pre-Alpha',
          'Intended Audience :: Science/Research',
@@ -26,5 +32,4 @@ setup(
          'Topic :: Scientific/Engineering :: Astronomy',
          'Topic :: Scientific/Engineering :: Physics',
     ],
-    zip_safe=False,
 )
