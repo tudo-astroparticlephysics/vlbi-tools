@@ -9,7 +9,11 @@ setup(
     author_email='kevin3.schmidt@tu-dortmund.de',
     license='MIT',
     packages=find_packages(),
-    install_requires=[],
+    install_requires=[
+        'numpy',
+        'pandas',
+        'astropy',
+    ],
     classifiers=[
          'Development Status :: 2 - Pre-Alpha',
          'Intended Audience :: Science/Research',
