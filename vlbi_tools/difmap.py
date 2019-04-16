@@ -30,13 +30,13 @@ def read_model(data_path):
 
     df_components = pd.DataFrame({'c_i': '',
                                   'date': date,
-                                  'x_positions': x_positions_cor,
-                                  'y_positions': y_positions_cor,
+                                  'radial_dist': radial_dist,
+                                  'flux': flux,
                                   'major_axes': major_axes,
                                   'minor_axes': minor_axes,
                                   'phi_ellipse': phi_ellipse,
-                                  'radial_dist': radial_dist,
-                                  'flux': flux,
+                                  'x_positions': x_positions_cor,
+                                  'y_positions': y_positions_cor,
                                   })
 
     return df_components
