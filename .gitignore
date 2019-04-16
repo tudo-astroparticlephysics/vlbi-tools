@@ -10,3 +10,9 @@
 
 # Python egg metadata, regenerated from source files by setuptools.
 /*.egg-info
+
+
+.pytest_cache
+results/
+output/
+__pycache__/
