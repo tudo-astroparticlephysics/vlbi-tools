@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='vlbi-tools',
+    name='vlbi_tools',
     version='0.0.1',
     description='Tools for analyzing and presenting VLBI data',
     url='https://github.com/tudo-astroparticlephysics/vlbi-tools',
