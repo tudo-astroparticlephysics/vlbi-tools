@@ -11,11 +11,13 @@ from vlbi_tools import difmap
 @click.argument('out_path', type=click.Path(exists=False, dir_okay=True))
 def main(data_path, model_name, out_path):
     '''
-    Converts difmap model in fits format into csv catalog. Searches for model
+    Converts difmap models in fits format into csv catalog. Searches for model
     files from a top level directory and summarizes all information in one
     file.
 
     DATA_PATH: path to top level directory of difmap models
+    MODEL_NAME: Name of the difmap model, all model files need to have the same
+                name
     OUT_PATH: path to directory to save catalog
     '''
     if not os.path.exists(out_path):
