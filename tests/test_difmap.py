@@ -8,7 +8,7 @@ def test_read_model():
     assert catalog.columns.tolist() == ['c_i', 'date', 'radial_dist', 'flux',
                                         'major_axes', 'minor_axes',
                                         'phi_ellipse', 'x_positions',
-                                        'y_positions']
+                                        'y_positions', 'noise_level']
 
 
 def test_convert_model():
