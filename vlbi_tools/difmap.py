@@ -12,6 +12,7 @@ def read_model(data_path):
     """
     difmap_data = fits.open(data_path)
     date = difmap_data['PRIMARY'].header['DATE-OBS']
+    noise_level = difmap_data['PRIMARY'].header['NOISE']
 
     x_positions = difmap_data['AIPS CC'].data['DELTAX']
     y_positions = difmap_data['AIPS CC'].data['DELTAY']
@@ -28,16 +29,18 @@ def read_model(data_path):
     radial_dist = np.sqrt(x_positions_cor**2 +
                           y_positions_cor**2)
 
-    df_components = pd.DataFrame({'c_i': '',
-                                  'date': date,
-                                  'radial_dist': radial_dist,
-                                  'flux': flux,
-                                  'major_axes': major_axes,
-                                  'minor_axes': minor_axes,
-                                  'phi_ellipse': phi_ellipse,
-                                  'x_positions': x_positions_cor,
-                                  'y_positions': y_positions_cor,
-                                  })
+    df_components = pd.DataFrame({
+            'c_i': '',
+            'date': date,
+            'radial_dist': radial_dist,
+            'flux': flux,
+            'major_axes': major_axes,
+            'minor_axes': minor_axes,
+            'phi_ellipse': phi_ellipse,
+            'x_positions': x_positions_cor,
+            'y_positions': y_positions_cor,
+            'noise_level': noise_level,
+            })
 
     return df_components
 
